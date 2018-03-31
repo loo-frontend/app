@@ -1,20 +1,25 @@
-import './assets/css/lib/lobipanel/lobipanel.css'
+import 'lobipanel/dist/css/lobipanel.css'
 import './assets/css/separate/vendor/lobipanel.min.css'
-import './assets/css/lib/jqueryui/jquery-ui.min.css'
+
+import 'jquery-ui-dist/jquery-ui.css'
+
 import './assets/css/separate/pages/widgets.min.css'
 import 'font-awesome/css/font-awesome.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import './assets/css/main.css'
 
-import './assets/css/lib/bootstrap-sweetalert/sweetalert.css'
+import 'bootstrap-sweetalert/dist/sweetalert.css'
 import './assets/css/separate/vendor/sweet-alert-animations.min.css'
 
-import './assets/js/lib/popper/popper.min.js'
-import './assets/js/lib/tether/tether.min.js'
+import 'popper.js/dist/popper.js'
+import 'tether/dist/js/tether.js'
 import 'bootstrap/dist/js/bootstrap.js'
-import './assets/js/lib/lobipanel/lobipanel.js'
+import 'lobipanel/dist/js/lobipanel.js'
 import './assets/js/plugins.js'
-import './assets/js/lib/bootstrap-sweetalert/sweetalert.min'
-import './assets/js/lib/jqueryui/jquery-ui.min.js'
+import 'bootstrap-sweetalert/dist/sweetalert.min'
+
+import 'jquery-ui-dist/jquery-ui.js'
+
+
 import './assets/js/lib/match-height/jquery.matchHeight.js'
 import './assets/js/app.js'
