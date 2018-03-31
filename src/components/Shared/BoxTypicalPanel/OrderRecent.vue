@@ -102,6 +102,20 @@
     props: [],
     mounted() {
 
+      $(document).ready(function() {
+
+        $('.panel').each(function () {
+          try {
+            $(this).lobiPanel({
+                sortable: true
+            }).on('dragged.lobiPanel', function(ev, lobiPanel){
+                $('.dahsboard-column').matchHeight();
+            });
+          } catch (err) {}
+        });
+
+      });
+
     },
     data() {
       return {

@@ -1,8 +1,9 @@
 <template>
   <div class="dropdown dropdown-typical">
-    <a class="dropdown-toggle" id="dd-header-marketing" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="font-icon font-icon-cogwheel"></span>
-    <span class="lbl">Marketing automation</span>
+    <a class="dropdown-toggle" id="dd-header-marketing" data-target="#" href="http://example.com" data-toggle="dropdown"
+       aria-haspopup="true" aria-expanded="false">
+      <span class="font-icon font-icon-cogwheel"></span>
+      <span class="lbl">Marketing automation</span>
     </a>
     <div class="dropdown-menu" aria-labelledby="dd-header-marketing">
       <a class="dropdown-item" href="#">Current Search</a>
@@ -41,8 +42,6 @@
   </div>
 </template>
 <script>
-  export default {
-    
-  }
+  export default {}
 </script> 
   

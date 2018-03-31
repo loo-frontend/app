@@ -28,6 +28,11 @@ export default {
 
   },
   methods: {
-
-  }
+    clickAlert() {
+      swal({
+        title: "Essa é uma messagem de Alerta em jQuery! \\o/",
+        text: "It's pretty, isn't it?"
+      });
+    }
+  },
 }

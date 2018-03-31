@@ -1,7 +1,7 @@
 <template>
   <header class="site-header">
     <div class="container-fluid">
-      
+
       <logo-header></logo-header>
 
       <button id="show-hide-sidebar-toggle" class="show-hide-sidebar">
@@ -17,7 +17,7 @@
 
             <notification-header></notification-header>
             <menu-user :profile="profile"></menu-user>
-            
+
             <button type="button" class="burger-right">
               <i class="font-icon-menu-addl"></i>
             </button>
@@ -27,8 +27,8 @@
           <div class="mobile-menu-right-overlay"></div>
           <div class="site-header-collapsed">
             <div class="site-header-collapsed-in">
-    
-              <menu-header></menu-header>              
+
+              <menu-header></menu-header>
               <form-search></form-search>
 
             </div>
@@ -44,25 +44,25 @@
   </header>
 </template>
 <script>
-import Notification from './Notification/Notification';
-import Menu from './Menu/Menu';
-import MenuUser from './Menu/MenuUser';
-import Logo from './Logo/Logo';
-import FormSearch from './Form/FormSearch';
+  import Notification from './Notification/Notification';
+  import Menu from './Menu/Menu';
+  import MenuUser from './Menu/MenuUser';
+  import Logo from './Logo/Logo';
+  import FormSearch from './Form/FormSearch';
 
-export default {
-  data: function() {
-    return {
-      profile: 'Meu Perfil'
+  export default {
+    data: function () {
+      return {
+        profile: 'Meu Perfil'
+      }
+    },
+    components: {
+      'notification-header': Notification,
+      'menu-header': Menu,
+      'logo-header': Logo,
+      'form-search': FormSearch,
+      'menu-user': MenuUser
     }
-  },
-  components: {
-    'notification-header': Notification,
-    'menu-header': Menu,
-    'logo-header': Logo,
-    'form-search': FormSearch,
-    'menu-user': MenuUser
   }
-}
 </script>
 

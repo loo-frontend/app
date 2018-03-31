@@ -1,9 +1,9 @@
 <template>
   <div id="home">
-    <site-header />
-    <side-menu />
+    <SiteHeader />
+    <SideMenuDefault />
     <router-view></router-view>    
-    <side-menu-panel-container />   
+    <SideMenuPanelContainer />   
   </div>  
 </template>
 
@@ -15,11 +15,25 @@ import SideMenuPanelContainer from './components/Shared/Sidebar/SideMenuPanelCon
 
 export default {
   name: 'home',
+  data() {  
+    return {
+
+
+
+    }
+  },
   components: {
-    'site-header': SiteHeader,
-    'side-menu': SideMenuDefault,
-    'side-menu-panel-container': SideMenuPanelContainer
+    SiteHeader,
+    SideMenuDefault,
+    SideMenuPanelContainer
+  },
+  mounted() {
+    console.log('Component mounted.')
+
+
+
   }
+
 }
 </script>
 
