@@ -1,12 +1,14 @@
 var path = require('path')
 var webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'build.js'
+    //filename: 'build.js'
+    filename: '[name].[hash].js'
   },
   module: {
     rules: [
@@ -90,6 +92,10 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
+    }),
+    new HtmlWebpackPlugin({
+      filename: '../index.html',
+      template: './index-template.ejs'
     })
   ])
 }
