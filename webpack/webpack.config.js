@@ -1,13 +1,21 @@
-var path = require('path')
-var webpack = require('webpack')
+const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const RemoveDirectoryDistPlugin = require('./remove-directory-dist-plugin')
+
+const PATHS = {
+  baseApp: path.join(__dirname, '../'),
+  src: path.join(__dirname, '../src'),
+  build: path.resolve(__dirname, '../dist')
+}
 
 module.exports = {
-  entry: './src/main.js',
+  entry: {
+    bundle: `${PATHS.src}/main.js`
+  },
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: PATHS.build,
     publicPath: '/dist/',
-    //filename: 'build.js'
     filename: '[name].[hash].js'
   },
   module: {
@@ -36,7 +44,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /(node_modules|bower_components)/
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -45,7 +53,8 @@ module.exports = {
           name: '[name].[ext]?[hash]'
         }
       },
-      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, 
+      { 
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/, 
         loader: 'url-loader?limit=100000' 
       }
     ]
@@ -60,8 +69,9 @@ module.exports = {
     historyApiFallback: true,
     noInfo: true,
     overlay: true,
+    hot: true,
     inline:true,
-    port: 8008
+    port: 8000
   },
   performance: {
     hints: false
@@ -71,9 +81,13 @@ module.exports = {
     new webpack.ProvidePlugin({
       $: 'jquery/dist/jquery.js',
       jQuery: 'jquery/dist/jquery.js'
-    })
+    }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ]
 }
+
+console.log(process.env.NODE_ENV);
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
@@ -94,8 +108,11 @@ if (process.env.NODE_ENV === 'production') {
       minimize: true
     }),
     new HtmlWebpackPlugin({
-      filename: '../index.html',
-      template: './index-template.ejs'
+      filename: `${PATHS.baseApp}/index.html`,
+      template: `${PATHS.src}/templates/index-template.ejs`
+    }),
+    new RemoveDirectoryDistPlugin({
+      path: PATHS.build
     })
   ])
 }

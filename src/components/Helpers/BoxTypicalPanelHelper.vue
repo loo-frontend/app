@@ -4,6 +4,7 @@
       <header class="box-typical-header panel-heading">
         <h3 class="panel-title">{{ title }}</h3>
       </header>
+
       <div class="box-typical-body panel-body">
         <slot></slot>
       </div>
@@ -29,7 +30,8 @@
     },
     computed: {
 
-    }
+    },
+
 }
 </script>
 
